@@ -43,13 +43,15 @@ BEGIN
 	read_data_2 <= register_array( 
 			      CONV_INTEGER( read_register_2_address ) );
 					-- Mux for Register Write Address
-   write_register_address <= write_register_address_1 
-			WHEN RegDst = '1'  			ELSE write_register_address_0;
+    write_register_address <= write_register_address_1 
+			"11111"	WHEN Instruction(31 DOWNTO 26) = "000011" -- OPcode Jal R31
+			ELSE write_register_address_1 WHEN RegDst = '1'  			
+			ELSE write_register_address_0;
 					-- Mux to bypass data memory for Rformat instructions
 	write_data <= ALU_result( 31 DOWNTO 0 ) 
 			WHEN ( MemtoReg = '0' ) 	ELSE read_data;
 					-- Sign Extend 16-bits to 32-bits
-    	Sign_extend <= X"0000" & Instruction_immediate_value
+    Sign_extend <= X"0000" & Instruction_immediate_value
 		WHEN Instruction_immediate_value(15) = '0'
 		ELSE	X"FFFF" & Instruction_immediate_value;
 
