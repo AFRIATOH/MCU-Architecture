@@ -15,7 +15,7 @@ ENTITY Idecode IS
 			RegDst 		: IN 	STD_LOGIC;
 			Sign_extend : OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 			clock,reset	: IN 	STD_LOGIC );
-			PC_plus_4   : IN    STD_LOGIC_VECTOR( 9 DOWNTO 0 ));
+			PC_plus_4   : IN    STD_LOGIC_VECTOR( 9 DOWNTO 0 );
 END Idecode;
 
 
