@@ -10,13 +10,13 @@ USE altera_mf.altera_mf_components.all;
 ENTITY Ifetch IS					-- --NEED UPDATE cannot be done without knowing ISA implementation
 	PORT(   Instruction  	: OUT	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
         	PC_plus_4_out 	: OUT	STD_LOGIC_VECTOR( 9 DOWNTO 0 );
-        	Add_result 		: IN 	STD_LOGIC_VECTOR( 7 DOWNTO 0 )ף
+        	Add_result 		: IN 	STD_LOGIC_VECTOR( 7 DOWNTO 0 );
 			Jump         	: IN  STD_LOGIC;
 			JumpReg      	: IN  STD_LOGIC;
 			Zero          	: IN  STD_LOGIC;
 			PC_out        	: OUT STD_LOGIC_VECTOR( 9 DOWNTO 0 );
 			read_data_1   	: IN  STD_LOGIC_VECTOR( 31 DOWNTO 0 );
-			clock, reset  	: IN  STD_LOGIC
+			clock, reset  	: IN  STD_LOGIC);
 END Ifetch;
 
 ARCHITECTURE behavior OF Ifetch IS
